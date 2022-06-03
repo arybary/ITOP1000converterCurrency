@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  flex-direction: column;}
+ 
+.header-tittle {
+    
+  display: flex;
+  flex-direction: row;
+  background: rgba(0, 174, 255, 0.742);
+  color: yellow;
+  text-shadow: rgb(14, 20, 1) 1px 0 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;  
+}
