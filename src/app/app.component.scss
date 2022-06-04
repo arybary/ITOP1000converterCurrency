@@ -1,9 +1,9 @@
 .header {
   display: flex;
-  flex-direction: column;}
- 
+  flex-direction: column;
+}
+
 .header-tittle {
-    
   display: flex;
   flex-direction: row;
   background: rgba(0, 174, 255, 0.742);
@@ -12,5 +12,5 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
-  border-radius: 10px;  
+  border-radius: 10px;
 }

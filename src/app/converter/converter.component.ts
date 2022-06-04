@@ -12,38 +12,37 @@ export class ConverterComponent implements OnInit {
   valueIn: number = 0;
   rateIn: number = 1;
   valueOut: number = 0;
-  rateOut: number = 1; 
+  rateOut: number = 1;
   currencyInfo: CurData[] = [];
 
   constructor(private httpService: CurrencyApiService) {}
 
   ngOnInit() {
     this.httpService.getCurrencyData().subscribe((data) => {
-      this.currencyInfo = [{ curCountry: 'UAH', curRate: 1, curName:'украЇнська гривня' }, ...data];
-      console.log(this.currencyInfo);
+      this.currencyInfo = [
+        { curCountry: 'UAH', curRate: 1, curName: 'украЇнська гривня' },
+        ...data,
+      ];
     });
   }
 
   inputHeandlerIn(event: any) {
-    this.valueIn = event.target.value;
-
+    this.valueIn = Number(event.target.value);
     this.valueOut = (this.valueIn * this.rateIn) / this.rateOut;
-    console.log(this, this.valueIn);
   }
+
   changeHeandlerIn(event: any) {
-    this.rateIn = event.target.value;
+    this.rateIn = Number(event.target.value);
     this.valueOut = (this.valueIn * this.rateIn) / this.rateOut;
+  }
 
-    console.log(this, this.rateIn, event.target);
-  }
   inputHeandlerOut(event: any) {
-    this.valueOut = event.target.value;
+    this.valueOut = Number(event.target.value);
     this.valueIn = (this.valueOut * this.rateOut) / this.rateIn;
-    console.log(this, this.valueOut);
   }
+
   changeHeandlerOut(event: any) {
-    this.rateOut = event.target.value;
+    this.rateOut = Number(event.target.value);
     this.valueOut = (this.valueIn * this.rateIn) / this.rateOut;
-    console.log(this, this.rateOut);
   }
 }
