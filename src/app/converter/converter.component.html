@@ -1,26 +1,28 @@
 <div class="converter">
   <div>
     <input
+      class="converter-input"
       type="number"
       (input)="inputHeandlerIn($event)"
-      value="{{(valueIn.toFixed(2))}}"
+      value="{{ valueIn.toFixed(2) }}"
     />
-    <select name="" id="" (change)="changeHeandlerIn($event)">
+    <select class="converter-select" (change)="changeHeandlerIn($event)">
       <option *ngFor="let cur of currencyInfo" value="{{ cur.curRate }}">
         {{ cur.curCountry }} - {{ cur.curName }}
       </option>
     </select>
   </div>
-  <div class="converter-arrow">↑ ↓</div>
-  <div> 
+  <div class="converter-arrow">↑↓</div>
+  <div>
     <input
+      class="converter-input"
       type="number"
       (input)="inputHeandlerOut($event)"
-      value="{{ valueOut.toFixed(2)  }}"
+      value="{{ valueOut.toFixed(2) }}"
     />
-    <select name="" id="" (change)="changeHeandlerOut($event)">
+    <select class="converter-select" (change)="changeHeandlerOut($event)">
       <option *ngFor="let cur of currencyInfo" value="{{ cur.curRate }}">
-        {{ cur.curCountry }}- {{ cur.curName }}
+        {{ cur.curCountry }} - {{ cur.curName }}
       </option>
     </select>
   </div>

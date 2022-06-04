@@ -8,9 +8,8 @@ describe('ConverterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConverterComponent ]
-    })
-    .compileComponents();
+      declarations: [ConverterComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
