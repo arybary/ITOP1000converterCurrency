@@ -22,7 +22,6 @@ export class ConverterComponent implements OnInit {
     this.httpService.getCurrencyData().subscribe((data) => {
       const indexUSD = data.findIndex((cur) => cur.curCountry === 'USD');
       [data[0], data[indexUSD]] = [data[indexUSD], data[0]];
-      this.rateOut = data[0].curRate;
       const currencyUAH = {
         curCountry: 'UAH',
         curRate: 1,
@@ -31,6 +30,8 @@ export class ConverterComponent implements OnInit {
 
       this.currencyInfoIn = [currencyUAH, ...data];
       this.currencyInfoOut = [...data, currencyUAH];
+      this.rateIn = this.currencyInfoIn[0].curRate;
+      this.rateOut = this.currencyInfoOut[0].curRate;
     });
   }
 
