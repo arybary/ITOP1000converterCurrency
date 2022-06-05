@@ -13,16 +13,24 @@ export class ConverterComponent implements OnInit {
   rateIn: number = 1;
   valueOut: number = 0;
   rateOut: number = 1;
-  currencyInfo: CurData[] = [];
+  currencyInfoIn: CurData[] = [];
+  currencyInfoOut: CurData[] = [];
 
   constructor(private httpService: CurrencyApiService) {}
 
   ngOnInit() {
     this.httpService.getCurrencyData().subscribe((data) => {
-      this.currencyInfo = [
-        { curCountry: 'UAH', curRate: 1, curName: 'украЇнська гривня' },
-        ...data,
-      ];
+      const indexUSD = data.findIndex((cur) => cur.curCountry === 'USD');
+      [data[0], data[indexUSD]] = [data[indexUSD], data[0]];
+      this.rateOut = data[0].curRate;
+      const currencyUAH = {
+        curCountry: 'UAH',
+        curRate: 1,
+        curName: 'украЇнська гривня',
+      };
+
+      this.currencyInfoIn = [currencyUAH, ...data];
+      this.currencyInfoOut = [...data, currencyUAH];
     });
   }
 

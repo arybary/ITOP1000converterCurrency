@@ -7,8 +7,8 @@
       value="{{ valueIn.toFixed(2) }}"
     />
     <select class="converter-select" (change)="changeHeandlerIn($event)">
-      <option *ngFor="let cur of currencyInfo" value="{{ cur.curRate }}">
-        {{ cur.curCountry }} - {{ cur.curName }}
+      <option *ngFor="let curIn of currencyInfoIn" value="{{ curIn.curRate }}">
+        {{ curIn.curCountry }} - {{ curIn.curName }}
       </option>
     </select>
   </div>
@@ -21,8 +21,11 @@
       value="{{ valueOut.toFixed(2) }}"
     />
     <select class="converter-select" (change)="changeHeandlerOut($event)">
-      <option *ngFor="let cur of currencyInfo" value="{{ cur.curRate }}">
-        {{ cur.curCountry }} - {{ cur.curName }}
+      <option
+        *ngFor="let curOut of currencyInfoOut"
+        value="{{ curOut.curRate }}"
+      >
+        {{ curOut.curCountry }} - {{ curOut.curName }}
       </option>
     </select>
   </div>
